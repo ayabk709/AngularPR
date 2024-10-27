@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h5>Products List</h5>
+
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+          <th>Product Date</th>
+
+        </tr>
+        </thead>
+        <tbody *ngFor="let product of products">
+
+        <!--        for each-->
+        <tr >
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productPrice }}</td>
+          <td>{{ product.productDate | date:"dd/MM/yyyy"}}</td>
+          <td><a class="btn btn-danger" (click)="deleteProduct(product)">Delete</a></td>
+          <td><a class="btn btn-primary" [routerLink]="['/editproducts', product.productId]">Edit</a></td>
+
+        </tr>
+
+
+        <!-- Add more product rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
